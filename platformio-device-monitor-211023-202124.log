@@ -1,0 +1,18 @@
+�Olli printed diybms logo....
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 14 - AP_START
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 14 - AP_START
+Connecting to WiFi .....[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.86.150, MASK: 255.255.255.0, GW: 192.168.86.1
+192.168.86.150
+[I][main.cpp:172] setup(): You can access DIYBMS interface at http://espressif.local or http://192.168.86.150
+[I][ArduinoOTA.cpp:141] begin(): OTA server at: esp-asyncFS.local:3232
+LITTLEFS Mounted
+dhcps: send_nak>>udp_sendto result 0
+ws[/ws][1] connect
+ws[/ws][1] pong[0]: 
+ws[/ws][1] text-message[3]: gui
+ws[/ws][1] text-message[3]: 887
+ws[/ws][1] text-message[3]: 987
+ws[/ws][1] text-message[3]: 567
