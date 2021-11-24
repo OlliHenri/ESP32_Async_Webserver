@@ -1,0 +1,202 @@
+et�Olli Serial Debug active....
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 14 - AP_START
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 14 - AP_START
+[I][main.cpp:213] setup(): Connecting to WiFi ..
+..[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.86.150, MASK: 255.255.255.0, GW: 192.168.86.1
+[I][main.cpp:219] setup(): WiFi local IP: 192.168.86.150 
+[I][main.cpp:221] setup(): You can access Network FileSystem interface at http://espressif.local or http://192.168.86.150
+[I][ArduinoOTA.cpp:141] begin(): OTA server at: esp-async.local:3232
+[I][main.cpp:251] setup(): LITTLEFS mounted, totalBytes=1507328, usedBytes=126976
+[D][main.cpp:253] setup(): LittleFS was mounted.....
+Listing directory: /
+  FILE: /.exclude.files	SIZE: 25
+  FILE: /about.htm	SIZE: 797
+  FILE: /contact.htm	SIZE: 833
+  FILE: /default.htm	SIZE: 948
+  FILE: /favicon.ico	SIZE: 1150
+  FILE: /index.htm	SIZE: 3686
+  FILE: /jquery.js	SIZE: 89501
+  FILE: /news.htm	SIZE: 714
+  FILE: /style.css	SIZE: 1057
+ws[/ws][1] connect
+ws[/ws][1] pong[0]: 
+ws[/ws][1] disconnect
+[E][vfs_api.cpp:64] open(): /littlefs/update does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update.gz does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/default.htm does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/default.htm.gz does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity.gz does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity/default.htm does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity/default.htm.gz does not exist
+[D][Updater.cpp:132] begin(): OTA Partition: ota_1
+Guru Meditation Error: Core  1 panic'ed (LoadProhibited). Exception was unhandled.
+Core 1 register dump:
+PC      : 0x4000c2e0  PS      : 0x00060030  A0      : 0x80087be6  A1      : 0x3ffd55f0  
+A2      : 0x3ffd5610  A3      : 0x00000000  A4      : 0x00000010  A5      : 0x3ffd5610  
+A6      : 0x00000020  A7      : 0x00000001  A8      : 0x00000000  A9      : 0x00150000  
+A10     : 0x3ffbd62c  A11     : 0x00060023  A12     : 0x00060021  A13     : 0x00000a24  
+A14     : 0x0000002a  A15     : 0x3ffd56f0  SAR     : 0x0000000b  EXCCAUSE: 0x0000001c  
+EXCVADDR: 0x00000000  LBEG    : 0x4000c2e0  LEND    : 0x4000c2f6  LCOUNT  : 0x00000000  
+
+ELF file SHA256: 0000000000000000
+
+Backtrace: 0x4000c2e0:0x3ffd55f0 0x40087be3:0x3ffd5600 0x4016059d:0x3ffd5650 0x400eae92:0x3ffd5670 0x400e4c1e:0x3ffd5690 0x400e4df6:0x3ffd56b0 0x400e5045:0x3ffd56d0 0x400d2342:0x3ffd5710 0x400d242d:0x3ffd5760 0x40189d1f:0x3ffd57b0 0x400d968d:0x3ffd5800 0x400da94e:0x3ffd5870 0x400dab11:0x3ffd58c0 0x4017c5ed:0x3ffd58e0 0x4017c669:0x3ffd5920 0x4017cd6a:0x3ffd5940 0x40089a56:0x3ffd5970
+  #0  0x4000c2e0:0x3ffd55f0 in ?? ??:0
+  #1  0x40087be3:0x3ffd5600 in spi_flash_write at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/spi_flash/flash_ops.c:412
+  #2  0x4016059d:0x3ffd5650 in esp_partition_write at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/spi_flash/partition.c:274
+  #3  0x400eae92:0x3ffd5670 in EspClass::partitionWrite(esp_partition_t const*, unsigned int, unsigned int*, unsigned int) at C:\Users\olive\.platformio\packages\framework-arduinoespressif32\cores\esp32/Esp.cpp:203
+  #4  0x400e4c1e:0x3ffd5690 in UpdateClass::_enablePartition(esp_partition_t const*) at C:\Users\olive\.platformio\packages\framework-arduinoespressif32\libraries\Update\src/Updater.cpp:376
+  #5  0x400e4df6:0x3ffd56b0 in UpdateClass::_verifyEnd() at C:\Users\olive\.platformio\packages\framework-arduinoespressif32\libraries\Update\src/Updater.cpp:376
+  #6  0x400e5045:0x3ffd56d0 in UpdateClass::end(bool) at C:\Users\olive\.platformio\packages\framework-arduinoespressif32\libraries\Update\src/Updater.cpp:376
+  #7  0x400d2342:0x3ffd5710 in AsyncElegantOtaClass::begin(AsyncWebServer*, char const*, char const*)::{lambda(AsyncWebServerRequest*, String, unsigned int, unsigned char*, unsigned int, bool)#4}::operator()(AsyncWebServerRequest*, String, unsigned int, unsigned char*, unsigned int, bool) const at .pio\libdeps\esp32dev\AsyncElegantOTA\src/AsyncElegantOTA.h:127
+  #8  0x400d242d:0x3ffd5760 in std::_Function_handler<void (AsyncWebServerRequest*, String const&, unsigned int, unsigned char*, unsigned int, bool), AsyncElegantOtaClass::begin(AsyncWebServer*, char const*, char const*)::{lambda(AsyncWebServerRequest*, String, unsigned int, unsigned char*, unsigned int, bool)#4}>::_M_invoke(std::_Any_data const&, AsyncWebServerRequest*&&, String const&, unsigned int&&, unsigned char*&&, AsyncWebServerRequest*&&, bool&&) at c:\users\olive\.platformio\packages\toolchain-xtensa32@2.50200.97\xtensa-esp32-elf\include\c++\5.2.0/functional:1871
+  #9  0x40189d1f:0x3ffd57b0 in std::function<void (AsyncWebServerRequest*, String const&, unsigned int, unsigned char*, unsigned int, bool)>::operator()(AsyncWebServerRequest*, String const&, unsigned int, unsigned char*, unsigned int, bool) const at .pio\libdeps\esp32dev\ESP Async WebServer\src/ESPAsyncWebServer.h:310
+      (inlined by) AsyncCallbackWebHandler::handleUpload(AsyncWebServerRequest*, String const&, unsigned int, unsigned char*, unsigned int, bool) at .pio\libdeps\esp32dev\ESP Async WebServer\src/WebHandlerImpl.h:124
+  #10 0x400d968d:0x3ffd5800 in AsyncWebServerRequest::_parseMultipartPostByte(unsigned char, bool) at .pio\libdeps\esp32dev\ESP Async WebServer\src/WebRequest.cpp:1001
+  #11 0x400da94e:0x3ffd5870 in AsyncWebServerRequest::_onData(void*, unsigned int) at .pio\libdeps\esp32dev\ESP Async WebServer\src/WebRequest.cpp:1001
+  #12 0x400dab11:0x3ffd58c0 in std::_Function_handler<void (void*, AsyncClient*, void*, unsigned int), AsyncWebServerRequest::AsyncWebServerRequest(AsyncWebServer*, AsyncClient*)::{lambda(void*, AsyncClient*, void*, unsigned int)#8}>::_M_invoke(std::_Any_data const&, void*&&, AsyncClient*&&, std::_Any_data const&, unsigned int&&) at .pio\libdeps\esp32dev\ESP Async WebServer\src/WebRequest.cpp:1001
+      (inlined by) _M_invoke at c:\users\olive\.platformio\packages\toolchain-xtensa32@2.50200.97\xtensa-esp32-elf\include\c++\5.2.0/functional:1871
+  #13 0x4017c5ed:0x3ffd58e0 in std::function<void (void*, AsyncClient*, void*, unsigned int)>::operator()(void*, AsyncClient*, void*, unsigned int) const at .pio\libdeps\esp32dev\AsyncTCP\src/AsyncTCP.cpp:1097
+      (inlined by) AsyncClient::_recv(tcp_pcb*, pbuf*, signed char) at .pio\libdeps\esp32dev\AsyncTCP\src/AsyncTCP.cpp:915
+  #14 0x4017c669:0x3ffd5920 in AsyncClient::_s_recv(void*, tcp_pcb*, pbuf*, signed char) at .pio\libdeps\esp32dev\AsyncTCP\src/AsyncTCP.cpp:1097
+  #15 0x4017cd6a:0x3ffd5940 in _async_service_task(void*) at .pio\libdeps\esp32dev\AsyncTCP\src/AsyncTCP.cpp:1097
+      (inlined by) _async_service_task at .pio\libdeps\esp32dev\AsyncTCP\src/AsyncTCP.cpp:194
+  #16 0x40089a56:0x3ffd5970 in vPortTaskWrapper at /home/runner/work/esp32-arduino-lib-builder/esp32-arduino-lib-builder/esp-idf/components/freertos/port.c:355 (discriminator 1)
+
+Rebooting...
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DOUT, clock div:2
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5828
+entry 0x400806a8
+Olli Serial Debug active....
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 14 - AP_START
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 14 - AP_START
+[I][main.cpp:213] setup(): Connecting to WiFi ..
+..[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.86.150, MASK: 255.255.255.0, GW: 192.168.86.1
+[I][main.cpp:219] setup(): WiFi local IP: 192.168.86.150 
+[I][main.cpp:221] setup(): You can access Network FileSystem interface at http://espressif.local or http://192.168.86.150
+[I][ArduinoOTA.cpp:141] begin(): OTA server at: esp-async.local:3232
+[I][main.cpp:251] setup(): LITTLEFS mounted, totalBytes=1507328, usedBytes=126976
+[D][main.cpp:253] setup(): LittleFS was mounted.....
+  FILE: /.exclude.files	SIZE: 25
+  FILE: /about.htm	SIZE: 797
+  FILE: /contact.htm	SIZE: 833
+  FILE: /default.htm	SIZE: 948
+  FILE: /favicon.ico	SIZE: 1150
+  FILE: /index.htm	SIZE: 3686
+  FILE: /jquery.js	SIZE: 89501
+  FILE: /news.htm	SIZE: 714
+  FILE: /style.css	SIZE: 1057
+[E][vfs_api.cpp:64] open(): /littlefs/update does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update.gz does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/default.htm does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/default.htm.gz does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity.gz does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity/default.htm does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity/default.htm.gz does not exist
+[D][Updater.cpp:132] begin(): OTA Partition: ota_1
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 3 - STA_STOP
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 15 - AP_STOP
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 15 - AP_STOP
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DOUT, clock div:2
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5828
+entry 0x400806a8
+DEBUG serial0 active
+
+Communication: serial0 115200bd + serial1 2400bd active 
+Start Serial active
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off
+The LED is on
+LED GREEN ON !
+The green LED is off

@@ -40,6 +40,8 @@ static const char *TAG = "Olli";
 #include <ESPAsyncWebServer.h>
 #include <SPIFFSEditor.h> // eventually this need further adaptation to LittelFS
 
+#include <AsyncElegantOTA.h>
+
 #define FORMAT_LITTLEFS_IF_FAILED true
 
 #define SERIAL_DEBUG Serial
@@ -147,6 +149,47 @@ void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventTyp
   }
 }
 
+// list LITTLEFS directory
+// Stolen from the example sketch on how to list files in a dir
+void listDir(fs::FS &fs, const char *dirname, uint8_t levels)
+{
+  Serial.printf("Listing directory: %s\r\n", dirname);
+
+  File root = fs.open(dirname);
+  if (!root)
+  {
+    Serial.println("- failed to open directory");
+    return;
+  }
+  if (!root.isDirectory())
+  {
+    Serial.println(" - not a directory");
+    return;
+  }
+
+  File file = root.openNextFile();
+  while (file)
+  {
+    if (file.isDirectory())
+    {
+      Serial.print("  DIR : ");
+      Serial.println(file.name());
+      if (levels)
+      {
+        listDir(fs, file.name(), levels - 1);
+      }
+    }
+    else
+    {
+      Serial.print("  FILE: ");
+      Serial.print(file.name());
+      Serial.print("\tSIZE: ");
+      Serial.println(file.size());
+    }
+    file = root.openNextFile();
+  }
+}
+
 void setup()
 {
 
@@ -208,6 +251,8 @@ void setup()
     ESP_LOGI(TAG, "LITTLEFS mounted, totalBytes=%u, usedBytes=%u", LITTLEFS.totalBytes(), LITTLEFS.usedBytes());
     // listDir(LITTLEFS, "/", 0);
     ESP_LOGD(TAG, "LittleFS was mounted.....");
+    // List directory, from root, 5 levels deep
+    listDir(LITTLEFS, "/", 5);
   }
 
   ws.onEvent(onWsEvent);
@@ -226,7 +271,9 @@ void setup()
   server.on("/heap", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(200, "text/plain", String(ESP.getFreeHeap())); });
 
-  server.serveStatic("/", LITTLEFS, "/").setDefaultFile("index.htm");
+  // server.serveStatic("/", LITTLEFS, "/").setDefaultFile("index.htm"); //original
+
+  server.serveStatic("/", LITTLEFS, "/").setDefaultFile("default.htm"); //  root directory
 
   server.onNotFound([](AsyncWebServerRequest *request)
                     {
@@ -288,6 +335,9 @@ void setup()
     Serial.printf("%s", (const char*)data);
     if(index + len == total)
       Serial.printf("BodyEnd: %u\n", total); });
+
+  AsyncElegantOTA.begin(&server); // Start ElegantOTA
+
   server.begin();
 }
 

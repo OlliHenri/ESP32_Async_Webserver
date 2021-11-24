@@ -1,0 +1,40 @@
+etOlli Serial Debug active....
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 0 - WIFI_READY
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 14 - AP_START
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 14 - AP_START
+[I][main.cpp:205] setup(): Connecting to WiFi ..
+..[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 4 - STA_CONNECTED
+[D][WiFiGeneric.cpp:374] _eventCallback(): Event: 7 - STA_GOT_IP
+[D][WiFiGeneric.cpp:419] _eventCallback(): STA IP: 192.168.86.150, MASK: 255.255.255.0, GW: 192.168.86.1
+[I][main.cpp:211] setup(): WiFi local IP: 192.168.86.150 
+[I][main.cpp:213] setup(): You can access Network FileSystem interface at http://espressif.local or http://192.168.86.150
+[I][ArduinoOTA.cpp:141] begin(): OTA server at: esp-async.local:3232
+[I][main.cpp:243] setup(): LITTLEFS mounted, totalBytes=1507328, usedBytes=135168
+[D][main.cpp:245] setup(): LittleFS was mounted.....
+  FILE: /.exclude.files	SIZE: 25
+  FILE: /about.htm	SIZE: 800
+  FILE: /contact.htm	SIZE: 836
+  FILE: /default.htm	SIZE: 951
+  FILE: /favicon.ico	SIZE: 1150
+  FILE: /index.htm	SIZE: 3689
+  FILE: /jquery.js	SIZE: 89501
+  FILE: /news.htm	SIZE: 717
+  FILE: /serverIndex.htm	SIZE: 2970
+  FILE: /style.css	SIZE: 1057
+  FILE: /update.htm	SIZE: 2136
+[W][AsyncTCP.cpp:950] _poll(): rx timeout 4
+[W][AsyncTCP.cpp:950] _poll(): rx timeout 4
+dhcps: send_nak>>udp_sendto result 0
+[W][AsyncTCP.cpp:950] _poll(): rx timeout 4
+[W][AsyncTCP.cpp:950] _poll(): rx timeout 4
+[W][AsyncTCP.cpp:950] _poll(): rx timeout 4
+[E][vfs_api.cpp:64] open(): /littlefs/update does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update.gz does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/default.htm does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/default.htm.gz does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity.gz does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity/default.htm does not exist
+[E][vfs_api.cpp:64] open(): /littlefs/update/identity/default.htm.gz does not exist
+[W][AsyncTCP.cpp:950] _poll(): rx timeout 4
+[W][AsyncTCP.cpp:950] _poll(): rx timeout 4
