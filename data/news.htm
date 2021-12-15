@@ -4,6 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link href="style.css" rel="stylesheet" />
+    <!-- <link href="pagejs.js" rel="stylesheet" /> -->
+    <!-- <script type="text/javascript" src="path-to-javascript-file.js"></script> -->
 </head>
 <body>
 
@@ -23,6 +25,65 @@
   <p>Our news placed here!</p>
   <p>Some content..for news</p>
 </div>
+<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+<div id="MyDateDisplay" class="calendar" onload="showDate()"></div>
 
 </body>
 </html>
+
+<script>
+
+function showTime(){
+
+  console.log("start showtime");
+    var date = new Date();
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    // var session = "AM";      //AM / PM  system
+    console.log("got time");
+    
+/*     if(h == 0){ //AM / PM  system
+        h = 12;
+    }
+    
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    } */
+    
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    
+    var time = h + ":" + m + ":" + s ;        //+ " " + session; //AM / PM  system
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").textContent = time;
+    
+    setTimeout(showTime, 1000);
+    
+}
+
+function showDate(){
+    var date = new Date();
+    var d = date.getDate(); // 0 - 31
+    var m = date.getMonth() + 1; // 0 - 11
+    var y = date.getFullYear(); //  example 2021
+    console.log("got Date");
+
+    d = (d < 10) ? "0" + d : d;
+    m = (m < 10) ? "0" + m : m;
+  
+    var my_date = d + ":" + m + ":" + y ;
+    document.getElementById("MyDateDisplay").innerText = my_date;
+    document.getElementById("MyDateDisplay").textContent = my_date;
+    
+    setTimeout(showDate, 1000);
+
+}
+
+showTime();
+showDate();
+
+
+</script>
